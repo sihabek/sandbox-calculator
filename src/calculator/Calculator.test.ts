@@ -56,6 +56,14 @@ describe("Calculator", () => {
     expect(calc.getDisplayed()).toBe("1234567890.1234"); // ignore '5'
   });
 
+  test("Input containing only separator should be treated as empty", () => {
+    calc.punchKey(".");
+    expect(calc.getDisplayed()).toBe(".");
+
+    calc.punchKey("=");
+    expect(calc.getDisplayed()).toBe("0");
+  });
+
   test("Add numbers", () => {
     calc.punchKey("3");
     calc.punchKey("7");

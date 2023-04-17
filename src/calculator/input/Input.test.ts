@@ -45,6 +45,11 @@ describe("CalculatorInput", () => {
     expect(input.push(".")).toBe("5.25");
   });
 
+  test("input containing only separator should flush null", () => {
+    expect(input.push(".")).toBe(".");
+    expect(input.flush()).toBe(null);
+  });
+
   test("clear input", () => {
     expect(input.clear()).toBe("0");
     input.push("1");

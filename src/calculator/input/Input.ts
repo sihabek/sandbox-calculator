@@ -41,7 +41,12 @@ class Input {
   // clear and return aggregated input
 
   public flush(): string | null {
-    const flushed = this.input.length > 0 ? this.input : null;
+    let flushed: string | null = null;
+
+    if (this.input.length > 0 && this.input !== ".") {
+      flushed = this.input;
+    }
+
     this.input = "";
 
     return flushed;
