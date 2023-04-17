@@ -46,13 +46,3 @@ updates displayed value with each punch:
   [4] ---> "4"
   [=] ---> "6"
 ```
-
-## TODO
-
-- replace the displayed value (string) with a state object, the base for rich
-  display in the future (indicators for different modes, etc.);
-- replace the general punchKey calculator method with multiple specific methods
-  (punchInput, punchBasicOperation, punchControl, etc.), which should make
-  breaking calculator logic and UI into smaller components easier;
-- allow UI to define the max number of displayed characters, and limit
-  computed values to a defined number;
