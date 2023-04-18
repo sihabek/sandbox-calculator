@@ -1,7 +1,9 @@
-const OPERATION_ADD = "addition";
-const OPERATION_SUBTRACT = "subtraction";
-const OPERATION_MULTIPLY = "multiplication";
-const OPERATION_DIVIDE = "division";
+import {
+  KEY_OP_ADD,
+  KEY_OP_SUBTRACT,
+  KEY_OP_MULTIPLY,
+  KEY_OP_DIVIDE,
+} from "../../constants";
 
 /**
  * Compute value as series of user inputs and operations.
@@ -38,19 +40,19 @@ class Compute {
 
       if (this.opearation !== null) {
         switch (this.opearation) {
-          case OPERATION_ADD:
+          case KEY_OP_ADD:
             this.value += inputValue;
             break;
 
-          case OPERATION_SUBTRACT:
+          case KEY_OP_SUBTRACT:
             this.value -= inputValue;
             break;
 
-          case OPERATION_MULTIPLY:
+          case KEY_OP_MULTIPLY:
             this.value *= inputValue;
             break;
 
-          case OPERATION_DIVIDE:
+          case KEY_OP_DIVIDE:
             this.value /= inputValue;
             break;
         }
@@ -75,22 +77,22 @@ class Compute {
   // store operation to be computed after next input (binary operations)
 
   public pushAdd(): Compute {
-    this.opearation = OPERATION_ADD;
+    this.opearation = KEY_OP_ADD;
     return this;
   }
 
   public pushSubtract(): Compute {
-    this.opearation = OPERATION_SUBTRACT;
+    this.opearation = KEY_OP_SUBTRACT;
     return this;
   }
 
   public pushMultipy(): Compute {
-    this.opearation = OPERATION_MULTIPLY;
+    this.opearation = KEY_OP_MULTIPLY;
     return this;
   }
 
   public pushDivide(): Compute {
-    this.opearation = OPERATION_DIVIDE;
+    this.opearation = KEY_OP_DIVIDE;
     return this;
   }
 

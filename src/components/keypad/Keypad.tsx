@@ -1,5 +1,27 @@
 import { Button, Grid, styled } from "@mui/material";
 
+import {
+  KEY_0,
+  KEY_1,
+  KEY_2,
+  KEY_3,
+  KEY_4,
+  KEY_5,
+  KEY_6,
+  KEY_7,
+  KEY_8,
+  KEY_9,
+  KEY_SEPARATOR,
+  KEY_OP_ADD,
+  KEY_OP_SUBTRACT,
+  KEY_OP_MULTIPLY,
+  KEY_OP_DIVIDE,
+  KEY_OP_PERCENT,
+  KEY_OP_EQUALS,
+  KEY_CTRL_AC,
+  KEY_CTRL_C,
+} from "../../constants";
+
 /**
  * Keypad is collection of keys (buttons) organized in grid. Click on each Button
  * calls onKeyPunch callback method with related key as parameter.
@@ -37,7 +59,7 @@ function Keypad({ onKeyPunch }: KeypadProps) {
         <OperationButton
           fullWidth
           variant="outlined"
-          onClick={() => onKeyPunch("AC")}
+          onClick={() => onKeyPunch(KEY_CTRL_AC)}
         >
           AC
         </OperationButton>
@@ -47,7 +69,7 @@ function Keypad({ onKeyPunch }: KeypadProps) {
         <OperationButton
           fullWidth
           variant="outlined"
-          onClick={() => onKeyPunch("C")}
+          onClick={() => onKeyPunch(KEY_CTRL_C)}
         >
           C
         </OperationButton>
@@ -57,7 +79,7 @@ function Keypad({ onKeyPunch }: KeypadProps) {
         <OperationButton
           fullWidth
           variant="outlined"
-          onClick={() => onKeyPunch("%")}
+          onClick={() => onKeyPunch(KEY_OP_PERCENT)}
         >
           %
         </OperationButton>
@@ -67,7 +89,7 @@ function Keypad({ onKeyPunch }: KeypadProps) {
         <OperationButton
           fullWidth
           variant="outlined"
-          onClick={() => onKeyPunch("/")}
+          onClick={() => onKeyPunch(KEY_OP_DIVIDE)}
         >
           /
         </OperationButton>
@@ -76,19 +98,19 @@ function Keypad({ onKeyPunch }: KeypadProps) {
       {/* Second row - [7] [8] [9] [*] */}
 
       <Grid item xs={3}>
-        <Button fullWidth variant="outlined" onClick={() => onKeyPunch("7")}>
+        <Button fullWidth variant="outlined" onClick={() => onKeyPunch(KEY_7)}>
           7
         </Button>
       </Grid>
 
       <Grid item xs={3}>
-        <Button fullWidth variant="outlined" onClick={() => onKeyPunch("8")}>
+        <Button fullWidth variant="outlined" onClick={() => onKeyPunch(KEY_8)}>
           8
         </Button>
       </Grid>
 
       <Grid item xs={3}>
-        <Button fullWidth variant="outlined" onClick={() => onKeyPunch("9")}>
+        <Button fullWidth variant="outlined" onClick={() => onKeyPunch(KEY_9)}>
           9
         </Button>
       </Grid>
@@ -97,7 +119,7 @@ function Keypad({ onKeyPunch }: KeypadProps) {
         <OperationButton
           fullWidth
           variant="outlined"
-          onClick={() => onKeyPunch("*")}
+          onClick={() => onKeyPunch(KEY_OP_MULTIPLY)}
         >
           *
         </OperationButton>
@@ -106,19 +128,19 @@ function Keypad({ onKeyPunch }: KeypadProps) {
       {/* Third row - [4] [5] [6] [-] */}
 
       <Grid item xs={3}>
-        <Button fullWidth variant="outlined" onClick={() => onKeyPunch("4")}>
+        <Button fullWidth variant="outlined" onClick={() => onKeyPunch(KEY_4)}>
           4
         </Button>
       </Grid>
 
       <Grid item xs={3}>
-        <Button fullWidth variant="outlined" onClick={() => onKeyPunch("5")}>
+        <Button fullWidth variant="outlined" onClick={() => onKeyPunch(KEY_5)}>
           5
         </Button>
       </Grid>
 
       <Grid item xs={3}>
-        <Button fullWidth variant="outlined" onClick={() => onKeyPunch("6")}>
+        <Button fullWidth variant="outlined" onClick={() => onKeyPunch(KEY_6)}>
           6
         </Button>
       </Grid>
@@ -127,7 +149,7 @@ function Keypad({ onKeyPunch }: KeypadProps) {
         <OperationButton
           fullWidth
           variant="outlined"
-          onClick={() => onKeyPunch("-")}
+          onClick={() => onKeyPunch(KEY_OP_SUBTRACT)}
         >
           -
         </OperationButton>
@@ -136,19 +158,19 @@ function Keypad({ onKeyPunch }: KeypadProps) {
       {/* Fourth row - [1] [2] [3] [+] */}
 
       <Grid item xs={3}>
-        <Button fullWidth variant="outlined" onClick={() => onKeyPunch("1")}>
+        <Button fullWidth variant="outlined" onClick={() => onKeyPunch(KEY_1)}>
           1
         </Button>
       </Grid>
 
       <Grid item xs={3}>
-        <Button fullWidth variant="outlined" onClick={() => onKeyPunch("2")}>
+        <Button fullWidth variant="outlined" onClick={() => onKeyPunch(KEY_2)}>
           2
         </Button>
       </Grid>
 
       <Grid item xs={3}>
-        <Button fullWidth variant="outlined" onClick={() => onKeyPunch("3")}>
+        <Button fullWidth variant="outlined" onClick={() => onKeyPunch(KEY_3)}>
           3
         </Button>
       </Grid>
@@ -157,7 +179,7 @@ function Keypad({ onKeyPunch }: KeypadProps) {
         <OperationButton
           fullWidth
           variant="outlined"
-          onClick={() => onKeyPunch("+")}
+          onClick={() => onKeyPunch(KEY_OP_ADD)}
         >
           +
         </OperationButton>
@@ -166,19 +188,27 @@ function Keypad({ onKeyPunch }: KeypadProps) {
       {/* Fifth row - [ 0 ] [.] [=] */}
 
       <Grid item xs={6}>
-        <Button fullWidth variant="outlined" onClick={() => onKeyPunch("0")}>
+        <Button fullWidth variant="outlined" onClick={() => onKeyPunch(KEY_0)}>
           0
         </Button>
       </Grid>
 
       <Grid item xs={3}>
-        <Button fullWidth variant="outlined" onClick={() => onKeyPunch(".")}>
+        <Button
+          fullWidth
+          variant="outlined"
+          onClick={() => onKeyPunch(KEY_SEPARATOR)}
+        >
           .
         </Button>
       </Grid>
 
       <Grid item xs={3}>
-        <Button fullWidth variant="contained" onClick={() => onKeyPunch("=")}>
+        <Button
+          fullWidth
+          variant="contained"
+          onClick={() => onKeyPunch(KEY_OP_EQUALS)}
+        >
           =
         </Button>
       </Grid>

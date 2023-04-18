@@ -1,4 +1,4 @@
-export const MAX_INPUT_LENGTH = 15;
+import { MAX_INPUT_LENGTH, KEY_SEPARATOR } from "../../constants";
 
 /**
  * Aggregate user input (digits and separator keys). Ignore invalid keys.
@@ -30,7 +30,7 @@ class Input {
 
   public push(key: string): string {
     if (this.input.length < MAX_INPUT_LENGTH) {
-      if (!(key === "." && this.input.includes("."))) {
+      if (!(key === KEY_SEPARATOR && this.input.includes("."))) {
         this.input += key;
       }
     }
@@ -43,7 +43,7 @@ class Input {
   public flush(): string | null {
     let flushed: string | null = null;
 
-    if (this.input.length > 0 && this.input !== ".") {
+    if (this.input.length > 0 && this.input !== KEY_SEPARATOR) {
       flushed = this.input;
     }
 
