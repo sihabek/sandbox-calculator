@@ -91,7 +91,7 @@ function Keypad({ onKeyPunch }: KeypadProps) {
           variant="outlined"
           onClick={() => onKeyPunch(KEY_OP_DIVIDE)}
         >
-          /
+          ÷
         </OperationButton>
       </Grid>
 
@@ -121,7 +121,7 @@ function Keypad({ onKeyPunch }: KeypadProps) {
           variant="outlined"
           onClick={() => onKeyPunch(KEY_OP_MULTIPLY)}
         >
-          *
+          ×
         </OperationButton>
       </Grid>
 

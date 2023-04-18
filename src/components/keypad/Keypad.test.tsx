@@ -42,7 +42,7 @@ describe("<Keypad />", () => {
     await user.click(screen.getByRole("button", { name: "%" }));
     expect(onPunchMock).toHaveBeenCalledWith(KEY_OP_PERCENT);
 
-    await user.click(screen.getByRole("button", { name: "/" }));
+    await user.click(screen.getByRole("button", { name: "÷" }));
     expect(onPunchMock).toHaveBeenCalledWith(KEY_OP_DIVIDE);
 
     await user.click(screen.getByRole("button", { name: "7" }));
@@ -54,7 +54,7 @@ describe("<Keypad />", () => {
     await user.click(screen.getByRole("button", { name: "9" }));
     expect(onPunchMock).toHaveBeenCalledWith(KEY_9);
 
-    await user.click(screen.getByRole("button", { name: "*" }));
+    await user.click(screen.getByRole("button", { name: "×" }));
     expect(onPunchMock).toHaveBeenCalledWith(KEY_OP_MULTIPLY);
 
     await user.click(screen.getByRole("button", { name: "4" }));
