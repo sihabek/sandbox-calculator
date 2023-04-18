@@ -1,4 +1,5 @@
 import { styled } from "@mui/material";
+import { Displayed } from "../../types";
 
 /**
  * Display provided value in decorated container.
@@ -14,11 +15,11 @@ const DisplayFrame = styled("div")(({ theme }) => ({
 }));
 
 type DisplayProps = {
-  displayed: string;
+  displayed: Displayed;
 };
 
 function Display({ displayed }: DisplayProps) {
-  return <DisplayFrame title="Display">{displayed}</DisplayFrame>;
+  return <DisplayFrame title="Display">{displayed.value}</DisplayFrame>;
 }
 
 export default Display;

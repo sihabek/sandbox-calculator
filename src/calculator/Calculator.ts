@@ -20,6 +20,7 @@ import {
   KEY_CTRL_C,
 } from "../constants";
 
+import { Displayed } from "../types";
 import Entry from "./entry/Entry";
 import Compute from "./compute/Compute";
 
@@ -32,137 +33,115 @@ import Compute from "./compute/Compute";
  * const calc = new Calculator();
  *
  * calc.punchKey(KEY_1);
- * console.log(calc.getDisplayd()); --> "1"
+ * console.log(calc.getDisplayd()); --> { value: "1" }
  *
  * calc.punchKey(KEY_2);
- * console.log(calc.getDisplayed()); --> "12"
+ * console.log(calc.getDisplayed()); --> { value: "12" }
  *
  * calc.punchKey(KEY_OP_DIVIDE);
- * console.log(calc.getDisplayed()); --> "12"
+ * console.log(calc.getDisplayed()); --> { value: "12" }
  *
  * calc.punchKey(KEY_3);
- * console.log(calc.getDisplayed()); --> "3"
+ * console.log(calc.getDisplayed()); --> { value: "3" }
  *
  * calc.punchKey(KEY_OP_EQUALS);
- * console.log(calc.getDisplayed()); --> "4"
+ * console.log(calc.getDisplayed()); --> { value: "4" }
  */
 
 class Calculator {
   private entry: Entry;
   private compute: Compute;
-  private displayed: string;
+  private displayed: Displayed;
 
   constructor() {
     this.entry = new Entry();
     this.compute = new Compute();
-    this.displayed = this.compute.result();
+
+    this.displayed = {
+      value: this.compute.result(),
+    };
   }
 
-  public getDisplayed(): string {
+  public getDisplayed(): Displayed {
     return this.displayed;
   }
 
   public punchKey(key: string): void {
+    this.displayed = { ...this.displayed, value: this.processKeyPunch(key) };
+  }
+
+  // return new displayed value after key punch
+
+  private processKeyPunch(key: string): string {
     switch (key) {
       // value input (display aggregated input)
 
       case KEY_0:
-        this.displayed = this.entry.push("0");
-        break;
+        return this.entry.push("0");
 
       case KEY_1:
-        this.displayed = this.entry.push("1");
-        break;
+        return this.entry.push("1");
 
       case KEY_2:
-        this.displayed = this.entry.push("2");
-        break;
+        return this.entry.push("2");
 
       case KEY_3:
-        this.displayed = this.entry.push("3");
-        break;
+        return this.entry.push("3");
 
       case KEY_4:
-        this.displayed = this.entry.push("4");
-        break;
+        return this.entry.push("4");
 
       case KEY_5:
-        this.displayed = this.entry.push("5");
-        break;
+        return this.entry.push("5");
 
       case KEY_6:
-        this.displayed = this.entry.push("6");
-        break;
+        return this.entry.push("6");
 
       case KEY_7:
-        this.displayed = this.entry.push("7");
-        break;
+        return this.entry.push("7");
 
       case KEY_8:
-        this.displayed = this.entry.push("8");
-        break;
+        return this.entry.push("8");
 
       case KEY_9:
-        this.displayed = this.entry.push("9");
-        break;
+        return this.entry.push("9");
 
       case KEY_SEPARATOR:
-        this.displayed = this.entry.push(".");
-        break;
+        return this.entry.push(".");
 
       // binary operations (compute and display previous operation, start new)
 
       case KEY_OP_ADD:
-        this.displayed = this.compute
-          .push(this.entry.flush())
-          .pushAdd()
-          .result();
-        break;
+        return this.compute.push(this.entry.flush()).pushAdd().result();
 
       case KEY_OP_SUBTRACT:
-        this.displayed = this.compute
-          .push(this.entry.flush())
-          .pushSubtract()
-          .result();
-        break;
+        return this.compute.push(this.entry.flush()).pushSubtract().result();
 
       case KEY_OP_MULTIPLY:
-        this.displayed = this.compute
-          .push(this.entry.flush())
-          .pushMultipy()
-          .result();
-        break;
+        return this.compute.push(this.entry.flush()).pushMultipy().result();
 
       case KEY_OP_DIVIDE:
-        this.displayed = this.compute
-          .push(this.entry.flush())
-          .pushDivide()
-          .result();
-        break;
+        return this.compute.push(this.entry.flush()).pushDivide().result();
 
       // unary operations (display computed result)
 
       case KEY_OP_EQUALS:
-        this.displayed = this.compute.push(this.entry.flush()).result();
-        break;
+        return this.compute.push(this.entry.flush()).result();
 
       case KEY_OP_PERCENT:
-        this.displayed = this.compute
-          .push(this.entry.flush())
-          .pushPercent()
-          .result();
-        break;
+        return this.compute.push(this.entry.flush()).pushPercent().result();
 
       // controls
 
       case KEY_CTRL_AC:
         this.entry.clear();
-        this.displayed = this.compute.clear().result();
-        break;
+        return this.compute.clear().result();
 
       case KEY_CTRL_C:
-        this.displayed = this.entry.clear();
-        break;
+        return this.entry.clear();
+
+      default:
+        return this.compute.result();
     }
   }
 }

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Displayed } from "../../types";
 import Calculator from "../../calculator/Calculator";
 import { Frame, FrameSlot } from "../frame/Frame";
 import Display from "../display/Display";
@@ -26,7 +27,7 @@ type AppProps = {
 };
 
 function App({ calculator }: AppProps) {
-  const [displayed, setDisplayed] = useState("");
+  const [displayed, setDisplayed] = useState<Displayed>({ value: "" });
 
   useEffect(() => {
     setDisplayed(calculator.getDisplayed());
