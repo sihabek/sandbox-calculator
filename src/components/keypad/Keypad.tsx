@@ -20,6 +20,8 @@ import {
   KEY_CTRL_C,
 } from "../../constants";
 
+import "./Keypad.css";
+
 /**
  * Keypad is collection of keys (buttons) organized in grid. Click on each button
  * calls onKeyPunch callback method with related key as parameter.
@@ -45,54 +47,169 @@ type KeypadProps = {
 
 function Keypad({ onKeyPunch }: KeypadProps) {
   return (
-    <div>
+    <div className="keypad">
       {/* First row - [AC] [C] [%] [/] */}
 
-      <button onClick={() => onKeyPunch(KEY_CTRL_AC)}>AC</button>
+      <button
+        type="button"
+        className="keypad-btn dark"
+        onClick={() => onKeyPunch(KEY_CTRL_AC)}
+      >
+        AC
+      </button>
 
-      <button onClick={() => onKeyPunch(KEY_CTRL_C)}>C</button>
+      <button
+        type="button"
+        className="keypad-btn dark"
+        onClick={() => onKeyPunch(KEY_CTRL_C)}
+      >
+        C
+      </button>
 
-      <button onClick={() => onKeyPunch(KEY_OP_PERCENT)}>%</button>
+      <button
+        type="button"
+        className="keypad-btn dark"
+        onClick={() => onKeyPunch(KEY_OP_PERCENT)}
+      >
+        %
+      </button>
 
-      <button onClick={() => onKeyPunch(KEY_OP_DIVIDE)}>÷</button>
+      <button
+        type="button"
+        className="keypad-btn dark"
+        onClick={() => onKeyPunch(KEY_OP_DIVIDE)}
+      >
+        ÷
+      </button>
 
       {/* Second row - [7] [8] [9] [*] */}
 
-      <button onClick={() => onKeyPunch(KEY_7)}>7</button>
+      <button
+        type="button"
+        className="keypad-btn"
+        onClick={() => onKeyPunch(KEY_7)}
+      >
+        7
+      </button>
 
-      <button onClick={() => onKeyPunch(KEY_8)}>8</button>
+      <button
+        type="button"
+        className="keypad-btn"
+        onClick={() => onKeyPunch(KEY_8)}
+      >
+        8
+      </button>
 
-      <button onClick={() => onKeyPunch(KEY_9)}>9</button>
+      <button
+        type="button"
+        className="keypad-btn"
+        onClick={() => onKeyPunch(KEY_9)}
+      >
+        9
+      </button>
 
-      <button onClick={() => onKeyPunch(KEY_OP_MULTIPLY)}>×</button>
+      <button
+        type="button"
+        className="keypad-btn dark"
+        onClick={() => onKeyPunch(KEY_OP_MULTIPLY)}
+      >
+        ×
+      </button>
 
       {/* Third row - [4] [5] [6] [-] */}
 
-      <button onClick={() => onKeyPunch(KEY_4)}>4</button>
+      <button
+        type="button"
+        className="keypad-btn"
+        onClick={() => onKeyPunch(KEY_4)}
+      >
+        4
+      </button>
 
-      <button onClick={() => onKeyPunch(KEY_5)}>5</button>
+      <button
+        type="button"
+        className="keypad-btn"
+        onClick={() => onKeyPunch(KEY_5)}
+      >
+        5
+      </button>
 
-      <button onClick={() => onKeyPunch(KEY_6)}>6</button>
+      <button
+        type="button"
+        className="keypad-btn"
+        onClick={() => onKeyPunch(KEY_6)}
+      >
+        6
+      </button>
 
-      <button onClick={() => onKeyPunch(KEY_OP_SUBTRACT)}>-</button>
+      <button
+        type="button"
+        className="keypad-btn dark"
+        onClick={() => onKeyPunch(KEY_OP_SUBTRACT)}
+      >
+        -
+      </button>
 
       {/* Fourth row - [1] [2] [3] [+] */}
 
-      <button onClick={() => onKeyPunch(KEY_1)}>1</button>
+      <button
+        type="button"
+        className="keypad-btn"
+        onClick={() => onKeyPunch(KEY_1)}
+      >
+        1
+      </button>
 
-      <button onClick={() => onKeyPunch(KEY_2)}>2</button>
+      <button
+        type="button"
+        className="keypad-btn"
+        onClick={() => onKeyPunch(KEY_2)}
+      >
+        2
+      </button>
 
-      <button onClick={() => onKeyPunch(KEY_3)}>3</button>
+      <button
+        type="button"
+        className="keypad-btn"
+        onClick={() => onKeyPunch(KEY_3)}
+      >
+        3
+      </button>
 
-      <button onClick={() => onKeyPunch(KEY_OP_ADD)}>+</button>
+      <button
+        type="button"
+        className="keypad-btn dark"
+        onClick={() => onKeyPunch(KEY_OP_ADD)}
+      >
+        +
+      </button>
 
       {/* Fifth row - [ 0 ] [.] [=] */}
 
-      <button onClick={() => onKeyPunch(KEY_0)}>0</button>
+      <button
+        type="button"
+        className="keypad-btn wide"
+        onClick={() => onKeyPunch(KEY_0)}
+      >
+        0
+      </button>
 
-      <button onClick={() => onKeyPunch(KEY_SEPARATOR)}>.</button>
+      <button
+        type="button"
+        className="keypad-btn"
+        onClick={() => onKeyPunch(KEY_SEPARATOR)}
+      >
+        .
+      </button>
 
-      <button onClick={() => onKeyPunch(KEY_OP_EQUALS)}>=</button>
+      <button
+        type="button"
+        className="keypad-btn primary"
+        autoFocus
+        onClick={() => onKeyPunch(KEY_OP_EQUALS)}
+      >
+        =
+      </button>
     </div>
   );
 }

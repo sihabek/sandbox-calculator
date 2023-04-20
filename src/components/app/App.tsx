@@ -4,6 +4,8 @@ import Calculator from "../../calculator/Calculator";
 import Display from "../display/Display";
 import Keypad from "../keypad/Keypad";
 
+import "./App.css";
+
 /**
  * Main container component. Composes UI and links it with calculator logic.
  *
@@ -38,7 +40,7 @@ function App({ calculator }: AppProps) {
   };
 
   return (
-    <div>
+    <div className="calc">
       <Display displayed={displayed} />
       <Keypad onKeyPunch={handleKeyPunch} />
     </div>
