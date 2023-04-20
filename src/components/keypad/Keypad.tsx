@@ -1,5 +1,3 @@
-import { Button, Grid, styled } from "@mui/material";
-
 import {
   KEY_0,
   KEY_1,
@@ -23,7 +21,7 @@ import {
 } from "../../constants";
 
 /**
- * Keypad is collection of keys (buttons) organized in grid. Click on each Button
+ * Keypad is collection of keys (buttons) organized in grid. Click on each button
  * calls onKeyPunch callback method with related key as parameter.
  *
  *    +------------------------------+
@@ -41,178 +39,61 @@ import {
  *    +------------------------------+
  */
 
-const OperationButton = styled(Button)((props) => ({
-  backgroundColor: "rgb(254,241,73,.1)",
-  borderColor: "rgb(255, 241, 73, .5)",
-}));
-
 type KeypadProps = {
   onKeyPunch: (key: string) => void;
 };
 
 function Keypad({ onKeyPunch }: KeypadProps) {
   return (
-    <Grid container spacing={1}>
+    <div>
       {/* First row - [AC] [C] [%] [/] */}
 
-      <Grid item xs={3}>
-        <OperationButton
-          fullWidth
-          variant="outlined"
-          onClick={() => onKeyPunch(KEY_CTRL_AC)}
-        >
-          AC
-        </OperationButton>
-      </Grid>
+      <button onClick={() => onKeyPunch(KEY_CTRL_AC)}>AC</button>
 
-      <Grid item xs={3}>
-        <OperationButton
-          fullWidth
-          variant="outlined"
-          onClick={() => onKeyPunch(KEY_CTRL_C)}
-        >
-          C
-        </OperationButton>
-      </Grid>
+      <button onClick={() => onKeyPunch(KEY_CTRL_C)}>C</button>
 
-      <Grid item xs={3}>
-        <OperationButton
-          fullWidth
-          variant="outlined"
-          onClick={() => onKeyPunch(KEY_OP_PERCENT)}
-        >
-          %
-        </OperationButton>
-      </Grid>
+      <button onClick={() => onKeyPunch(KEY_OP_PERCENT)}>%</button>
 
-      <Grid item xs={3}>
-        <OperationButton
-          fullWidth
-          variant="outlined"
-          onClick={() => onKeyPunch(KEY_OP_DIVIDE)}
-        >
-          ÷
-        </OperationButton>
-      </Grid>
+      <button onClick={() => onKeyPunch(KEY_OP_DIVIDE)}>÷</button>
 
       {/* Second row - [7] [8] [9] [*] */}
 
-      <Grid item xs={3}>
-        <Button fullWidth variant="outlined" onClick={() => onKeyPunch(KEY_7)}>
-          7
-        </Button>
-      </Grid>
+      <button onClick={() => onKeyPunch(KEY_7)}>7</button>
 
-      <Grid item xs={3}>
-        <Button fullWidth variant="outlined" onClick={() => onKeyPunch(KEY_8)}>
-          8
-        </Button>
-      </Grid>
+      <button onClick={() => onKeyPunch(KEY_8)}>8</button>
 
-      <Grid item xs={3}>
-        <Button fullWidth variant="outlined" onClick={() => onKeyPunch(KEY_9)}>
-          9
-        </Button>
-      </Grid>
+      <button onClick={() => onKeyPunch(KEY_9)}>9</button>
 
-      <Grid item xs={3}>
-        <OperationButton
-          fullWidth
-          variant="outlined"
-          onClick={() => onKeyPunch(KEY_OP_MULTIPLY)}
-        >
-          ×
-        </OperationButton>
-      </Grid>
+      <button onClick={() => onKeyPunch(KEY_OP_MULTIPLY)}>×</button>
 
       {/* Third row - [4] [5] [6] [-] */}
 
-      <Grid item xs={3}>
-        <Button fullWidth variant="outlined" onClick={() => onKeyPunch(KEY_4)}>
-          4
-        </Button>
-      </Grid>
+      <button onClick={() => onKeyPunch(KEY_4)}>4</button>
 
-      <Grid item xs={3}>
-        <Button fullWidth variant="outlined" onClick={() => onKeyPunch(KEY_5)}>
-          5
-        </Button>
-      </Grid>
+      <button onClick={() => onKeyPunch(KEY_5)}>5</button>
 
-      <Grid item xs={3}>
-        <Button fullWidth variant="outlined" onClick={() => onKeyPunch(KEY_6)}>
-          6
-        </Button>
-      </Grid>
+      <button onClick={() => onKeyPunch(KEY_6)}>6</button>
 
-      <Grid item xs={3}>
-        <OperationButton
-          fullWidth
-          variant="outlined"
-          onClick={() => onKeyPunch(KEY_OP_SUBTRACT)}
-        >
-          -
-        </OperationButton>
-      </Grid>
+      <button onClick={() => onKeyPunch(KEY_OP_SUBTRACT)}>-</button>
 
       {/* Fourth row - [1] [2] [3] [+] */}
 
-      <Grid item xs={3}>
-        <Button fullWidth variant="outlined" onClick={() => onKeyPunch(KEY_1)}>
-          1
-        </Button>
-      </Grid>
+      <button onClick={() => onKeyPunch(KEY_1)}>1</button>
 
-      <Grid item xs={3}>
-        <Button fullWidth variant="outlined" onClick={() => onKeyPunch(KEY_2)}>
-          2
-        </Button>
-      </Grid>
+      <button onClick={() => onKeyPunch(KEY_2)}>2</button>
 
-      <Grid item xs={3}>
-        <Button fullWidth variant="outlined" onClick={() => onKeyPunch(KEY_3)}>
-          3
-        </Button>
-      </Grid>
+      <button onClick={() => onKeyPunch(KEY_3)}>3</button>
 
-      <Grid item xs={3}>
-        <OperationButton
-          fullWidth
-          variant="outlined"
-          onClick={() => onKeyPunch(KEY_OP_ADD)}
-        >
-          +
-        </OperationButton>
-      </Grid>
+      <button onClick={() => onKeyPunch(KEY_OP_ADD)}>+</button>
 
       {/* Fifth row - [ 0 ] [.] [=] */}
 
-      <Grid item xs={6}>
-        <Button fullWidth variant="outlined" onClick={() => onKeyPunch(KEY_0)}>
-          0
-        </Button>
-      </Grid>
+      <button onClick={() => onKeyPunch(KEY_0)}>0</button>
 
-      <Grid item xs={3}>
-        <Button
-          fullWidth
-          variant="outlined"
-          onClick={() => onKeyPunch(KEY_SEPARATOR)}
-        >
-          .
-        </Button>
-      </Grid>
+      <button onClick={() => onKeyPunch(KEY_SEPARATOR)}>.</button>
 
-      <Grid item xs={3}>
-        <Button
-          fullWidth
-          variant="contained"
-          onClick={() => onKeyPunch(KEY_OP_EQUALS)}
-        >
-          =
-        </Button>
-      </Grid>
-    </Grid>
+      <button onClick={() => onKeyPunch(KEY_OP_EQUALS)}>=</button>
+    </div>
   );
 }
 

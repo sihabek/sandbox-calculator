@@ -1,14 +1,13 @@
 import { useEffect, useState } from "react";
 import { Displayed } from "../../types";
 import Calculator from "../../calculator/Calculator";
-import { Frame, FrameSlot } from "../frame/Frame";
 import Display from "../display/Display";
 import Keypad from "../keypad/Keypad";
 
 /**
  * Main container component. Composes UI and links it with calculator logic.
  *
- *   +-Frame------------------+                  +--------------+
+ *   +-App--------------------+                  +--------------+
  *   |  +-Display----------+  |                  |              |
  *   |  |            123.4 |  | <-- displayed -- |              |
  *   |  +------------------+  |                  |              |
@@ -39,14 +38,10 @@ function App({ calculator }: AppProps) {
   };
 
   return (
-    <Frame>
-      <FrameSlot>
-        <Display displayed={displayed} />
-      </FrameSlot>
-      <FrameSlot>
-        <Keypad onKeyPunch={handleKeyPunch} />
-      </FrameSlot>
-    </Frame>
+    <div>
+      <Display displayed={displayed} />
+      <Keypad onKeyPunch={handleKeyPunch} />
+    </div>
   );
 }
 
