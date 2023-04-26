@@ -1,15 +1,10 @@
 import { useEffect, useState } from "react";
-import { Displayed } from "../types";
 import Calculator from "../calculator/Calculator";
-
-const initialyDisplayed: Displayed = {
-  value: "",
-};
 
 function useCalculator(
   calculator: Calculator
-): [Displayed, (key: string) => void] {
-  const [displayed, setDisplayed] = useState<Displayed>(initialyDisplayed);
+): [string, (key: string) => void] {
+  const [displayed, setDisplayed] = useState("");
 
   useEffect(() => {
     setDisplayed(calculator.getDisplayed());

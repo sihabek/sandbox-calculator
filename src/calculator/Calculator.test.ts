@@ -30,39 +30,30 @@ describe("Calculator", () => {
   });
 
   test("Initial value", () => {
-    expect(calc.getDisplayed().value).toBe("0");
-  });
-
-  test("returns new displayed instance after key punch", () => {
-    const displayed1 = calc.getDisplayed();
-
-    calc.punchKey(KEY_1);
-    const displayed2 = calc.getDisplayed();
-
-    expect(displayed1).not.toBe(displayed2);
+    expect(calc.getDisplayed()).toBe("0");
   });
 
   test("Input number", () => {
     calc.punchKey(KEY_2);
-    expect(calc.getDisplayed().value).toBe("2");
+    expect(calc.getDisplayed()).toBe("2");
 
     calc.punchKey(KEY_4);
-    expect(calc.getDisplayed().value).toBe("24");
+    expect(calc.getDisplayed()).toBe("24");
 
     calc.punchKey(KEY_SEPARATOR);
-    expect(calc.getDisplayed().value).toBe("24.");
+    expect(calc.getDisplayed()).toBe("24.");
 
     calc.punchKey(KEY_6);
-    expect(calc.getDisplayed().value).toBe("24.6");
+    expect(calc.getDisplayed()).toBe("24.6");
 
     calc.punchKey(KEY_0);
-    expect(calc.getDisplayed().value).toBe("24.60");
+    expect(calc.getDisplayed()).toBe("24.60");
 
     calc.punchKey(KEY_SEPARATOR);
-    expect(calc.getDisplayed().value).toBe("24.60"); // ignore repeated separator
+    expect(calc.getDisplayed()).toBe("24.60"); // ignore repeated separator
 
     calc.punchKey(KEY_2);
-    expect(calc.getDisplayed().value).toBe("24.602");
+    expect(calc.getDisplayed()).toBe("24.602");
   });
 
   test("Input allows max 15 digits (and separator)", () => {
@@ -81,45 +72,45 @@ describe("Calculator", () => {
     calc.punchKey(KEY_2);
     calc.punchKey(KEY_3);
     calc.punchKey(KEY_4);
-    expect(calc.getDisplayed().value).toBe("1234567890.1234");
+    expect(calc.getDisplayed()).toBe("1234567890.1234");
 
     calc.punchKey(KEY_5);
-    expect(calc.getDisplayed().value).toBe("1234567890.1234"); // ignore '5'
+    expect(calc.getDisplayed()).toBe("1234567890.1234"); // ignore '5'
   });
 
   test("Input containing only separator should be treated as empty", () => {
     calc.punchKey(KEY_SEPARATOR);
-    expect(calc.getDisplayed().value).toBe(".");
+    expect(calc.getDisplayed()).toBe(".");
 
     calc.punchKey(KEY_OP_EQUALS);
-    expect(calc.getDisplayed().value).toBe("0");
+    expect(calc.getDisplayed()).toBe("0");
   });
 
   test("Add numbers", () => {
     calc.punchKey(KEY_3);
     calc.punchKey(KEY_7);
     calc.punchKey(KEY_OP_ADD);
-    expect(calc.getDisplayed().value).toBe("37");
+    expect(calc.getDisplayed()).toBe("37");
 
     calc.punchKey(KEY_1);
     calc.punchKey(KEY_5);
-    expect(calc.getDisplayed().value).toBe("15");
+    expect(calc.getDisplayed()).toBe("15");
 
     calc.punchKey(KEY_OP_EQUALS);
-    expect(calc.getDisplayed().value).toBe("52");
+    expect(calc.getDisplayed()).toBe("52");
   });
 
   test("Subtract numbers", () => {
     calc.punchKey(KEY_1);
     calc.punchKey(KEY_6);
     calc.punchKey(KEY_OP_SUBTRACT);
-    expect(calc.getDisplayed().value).toBe("16");
+    expect(calc.getDisplayed()).toBe("16");
 
     calc.punchKey(KEY_9);
-    expect(calc.getDisplayed().value).toBe("9");
+    expect(calc.getDisplayed()).toBe("9");
 
     calc.punchKey(KEY_OP_EQUALS);
-    expect(calc.getDisplayed().value).toBe("7");
+    expect(calc.getDisplayed()).toBe("7");
   });
 
   test("Multiply numbers", () => {
@@ -127,32 +118,32 @@ describe("Calculator", () => {
     calc.punchKey(KEY_SEPARATOR);
     calc.punchKey(KEY_5);
     calc.punchKey(KEY_OP_MULTIPLY);
-    expect(calc.getDisplayed().value).toBe("2.5");
+    expect(calc.getDisplayed()).toBe("2.5");
 
     calc.punchKey(KEY_1);
     calc.punchKey(KEY_SEPARATOR);
     calc.punchKey(KEY_3);
-    expect(calc.getDisplayed().value).toBe("1.3");
+    expect(calc.getDisplayed()).toBe("1.3");
 
     calc.punchKey(KEY_OP_EQUALS);
-    expect(calc.getDisplayed().value).toBe("3.25");
+    expect(calc.getDisplayed()).toBe("3.25");
   });
 
   test("Divide numbers", () => {
     calc.punchKey(KEY_5);
     calc.punchKey(KEY_OP_DIVIDE);
-    expect(calc.getDisplayed().value).toBe("5");
+    expect(calc.getDisplayed()).toBe("5");
 
     calc.punchKey(KEY_2);
     calc.punchKey(KEY_OP_EQUALS);
-    expect(calc.getDisplayed().value).toBe("2.5");
+    expect(calc.getDisplayed()).toBe("2.5");
   });
 
   test("Calculate percent", () => {
     calc.punchKey(KEY_4);
     calc.punchKey(KEY_5);
     calc.punchKey(KEY_OP_PERCENT);
-    expect(calc.getDisplayed().value).toBe("0.45");
+    expect(calc.getDisplayed()).toBe("0.45");
   });
 
   test("Clear all", () => {
@@ -160,11 +151,11 @@ describe("Calculator", () => {
     calc.punchKey(KEY_OP_ADD);
     calc.punchKey(KEY_3);
     calc.punchKey(KEY_CTRL_AC);
-    expect(calc.getDisplayed().value).toBe("0");
+    expect(calc.getDisplayed()).toBe("0");
 
     calc.punchKey(KEY_5);
     calc.punchKey(KEY_OP_EQUALS);
-    expect(calc.getDisplayed().value).toBe("5"); // ignore previous input
+    expect(calc.getDisplayed()).toBe("5"); // ignore previous input
   });
 
   test("Clear input", () => {
@@ -172,11 +163,11 @@ describe("Calculator", () => {
     calc.punchKey(KEY_OP_ADD);
     calc.punchKey(KEY_3);
     calc.punchKey(KEY_CTRL_C);
-    expect(calc.getDisplayed().value).toBe("0");
+    expect(calc.getDisplayed()).toBe("0");
 
     calc.punchKey(KEY_5);
     calc.punchKey(KEY_OP_EQUALS);
-    expect(calc.getDisplayed().value).toBe("7"); // clear only last input (3)
+    expect(calc.getDisplayed()).toBe("7"); // clear only last input (3)
   });
 
   test("Chain multiple operations", () => {
@@ -193,6 +184,6 @@ describe("Calculator", () => {
     calc.punchKey(KEY_3);
     calc.punchKey(KEY_OP_EQUALS);
 
-    expect(calc.getDisplayed().value).toBe("13.5");
+    expect(calc.getDisplayed()).toBe("13.5");
   });
 });

@@ -10,7 +10,7 @@ function TestComponent({ calculator }: { calculator: Calculator }) {
 
   return (
     <>
-      <div title="display">{displayed.value}</div>
+      <div title="display">{displayed}</div>
       <div>
         <button onClick={() => punch(KEY_3)}>3</button>
         <button onClick={() => punch(KEY_5)}>5</button>

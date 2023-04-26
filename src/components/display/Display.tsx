@@ -1,5 +1,3 @@
-import { Displayed } from "../../types";
-
 /**
  * Display provided value in decorated container.
  */
@@ -7,13 +5,13 @@ import { Displayed } from "../../types";
 import "./Dislay.css";
 
 type DisplayProps = {
-  displayed: Displayed;
+  displayed: string;
 };
 
 function Display({ displayed }: DisplayProps) {
   return (
     <div className="display" title="Display">
-      {displayed.value}
+      {displayed}
     </div>
   );
 }

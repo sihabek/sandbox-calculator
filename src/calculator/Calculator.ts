@@ -20,7 +20,6 @@ import {
   KEY_CTRL_C,
 } from "../constants";
 
-import { Displayed } from "../types";
 import Entry from "./entry/Entry";
 import Compute from "./compute/Compute";
 
@@ -33,41 +32,38 @@ import Compute from "./compute/Compute";
  * const calc = new Calculator();
  *
  * calc.punchKey(KEY_1);
- * console.log(calc.getDisplayd()); --> { value: "1" }
+ * console.log(calc.getDisplayd()); --> "1"
  *
  * calc.punchKey(KEY_2);
- * console.log(calc.getDisplayed()); --> { value: "12" }
+ * console.log(calc.getDisplayed()); --> "12"
  *
  * calc.punchKey(KEY_OP_DIVIDE);
- * console.log(calc.getDisplayed()); --> { value: "12" }
+ * console.log(calc.getDisplayed()); --> "12"
  *
  * calc.punchKey(KEY_3);
- * console.log(calc.getDisplayed()); --> { value: "3" }
+ * console.log(calc.getDisplayed()); --> "3"
  *
  * calc.punchKey(KEY_OP_EQUALS);
- * console.log(calc.getDisplayed()); --> { value: "4" }
+ * console.log(calc.getDisplayed()); --> "4"
  */
 
 class Calculator {
   private entry: Entry;
   private compute: Compute;
-  private displayed: Displayed;
+  private displayed: string;
 
   constructor() {
     this.entry = new Entry();
     this.compute = new Compute();
-
-    this.displayed = {
-      value: this.compute.result(),
-    };
+    this.displayed = this.compute.result();
   }
 
-  public getDisplayed(): Displayed {
+  public getDisplayed(): string {
     return this.displayed;
   }
 
   public punchKey(key: string): void {
-    this.displayed = { ...this.displayed, value: this.processKeyPunch(key) };
+    this.displayed = this.processKeyPunch(key);
   }
 
   // return new displayed value after key punch
