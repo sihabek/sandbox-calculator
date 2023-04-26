@@ -21,7 +21,7 @@ import {
 } from "../constants";
 
 import Entry from "./entry/Entry";
-import Compute from "./compute/Compute";
+import Compute from "../utils/Compute";
 
 /**
  * Implement calculator by displaying entered or computed value as result of
