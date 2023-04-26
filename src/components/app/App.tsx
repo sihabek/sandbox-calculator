@@ -1,6 +1,5 @@
-import { useEffect, useState } from "react";
-import { Displayed } from "../../types";
 import Calculator from "../../calculator/Calculator";
+import useCalculator from "../../hooks/useCalculator";
 import Display from "../display/Display";
 import Keypad from "../keypad/Keypad";
 
@@ -9,16 +8,16 @@ import "./App.css";
 /**
  * Main container component. Composes UI and links it with calculator logic.
  *
- *   +-App--------------------+                  +--------------+
- *   |  +-Display----------+  |                  |              |
- *   |  |            123.4 |  | <-- displayed -- |              |
- *   |  +------------------+  |                  |              |
- *   |                        |                  |              |
- *   |  +-Keypad-----------+  |                  |  Calculator  |
- *   |  |  ##  ##  ##  ##  |  |                  |              |
- *   |  |  ##  ##  ##  ##  |  | --- punchKey --> |              |
- *   |  |  ##  ##  ##  ##  |  |                  |              |
- *   |  |  ######  ##  ##  |  |                  +--------------+
+ *   +-App--------------------+                  +----------------+                  +--------------+
+ *   |  +-Display----------+  |                  |                |                  |              |
+ *   |  |            123.4 |  | <-- displayed -- |                | <-- displayed -- |              |
+ *   |  +------------------+  |                  |                |                  |              |
+ *   |                        |                  |                |                  |              |
+ *   |  +-Keypad-----------+  |                  |  useCalculator |                  |  Calculator  |
+ *   |  |  ##  ##  ##  ##  |  |                  |                |                  |              |
+ *   |  |  ##  ##  ##  ##  |  | --- punchKey --> |                | --- punchKey --> |              |
+ *   |  |  ##  ##  ##  ##  |  |                  |                |                  |              |
+ *   |  |  ######  ##  ##  |  |                  +----------------+                  +--------------+
  *   |  +------------------+  |
  *   +------------------------+
  */
@@ -28,21 +27,12 @@ type AppProps = {
 };
 
 function App({ calculator }: AppProps) {
-  const [displayed, setDisplayed] = useState<Displayed>({ value: "" });
-
-  useEffect(() => {
-    setDisplayed(calculator.getDisplayed());
-  }, []);
-
-  const handleKeyPunch = (key: string) => {
-    calculator.punchKey(key);
-    setDisplayed(calculator.getDisplayed());
-  };
+  const [displayed, punchKey] = useCalculator(calculator);
 
   return (
     <div className="calc">
       <Display displayed={displayed} />
-      <Keypad onKeyPunch={handleKeyPunch} />
+      <Keypad onKeyPunch={(key) => punchKey(key)} />
     </div>
   );
 }
