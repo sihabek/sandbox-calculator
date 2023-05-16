@@ -22,7 +22,7 @@ import {
   KEY_OP_EQUALS,
   KEY_CTRL_AC,
   KEY_CTRL_C,
-} from "../../constants";
+} from "../../helpers/keys";
 
 import Keypad from "./Keypad";
 

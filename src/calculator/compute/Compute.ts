@@ -3,7 +3,7 @@ import {
   KEY_OP_SUBTRACT,
   KEY_OP_MULTIPLY,
   KEY_OP_DIVIDE,
-} from "../../constants";
+} from "../../helpers/keys";
 
 /**
  * Compute value as series of user inputs and operations.

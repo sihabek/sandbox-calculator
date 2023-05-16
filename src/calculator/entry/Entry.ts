@@ -1,4 +1,4 @@
-import { MAX_INPUT_LENGTH, KEY_SEPARATOR } from "../../constants";
+import { MAX_INPUT_LENGTH, KEY_SEPARATOR } from "../../helpers/keys";
 
 /**
  * Aggregate user input (digits and separator keys). Ignore invalid keys.
