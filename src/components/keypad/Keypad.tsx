@@ -47,7 +47,7 @@ type KeypadProps = {
 
 function Keypad({ onKeyPunch }: KeypadProps) {
   return (
-    <div className="keypad">
+    <section className="keypad" aria-label="Keypad">
       {/* First row - [AC] [C] [%] [/] */}
 
       <button
@@ -210,7 +210,7 @@ function Keypad({ onKeyPunch }: KeypadProps) {
       >
         =
       </button>
-    </div>
+    </section>
   );
 }
 

@@ -13,7 +13,7 @@ describe("<App />", () => {
 
   test("display initial value", () => {
     render(<App calculator={calculator} />);
-    expect(screen.getByTitle("Display")).toHaveTextContent("0");
+    expect(screen.getByLabelText("Display")).toHaveTextContent("0");
   });
 
   test("update display when key is punched", async () => {
@@ -21,15 +21,15 @@ describe("<App />", () => {
     render(<App calculator={calculator} />);
 
     await user.click(screen.getByRole("button", { name: "5" }));
-    expect(screen.getByTitle("Display")).toHaveTextContent("5");
+    expect(screen.getByLabelText("Display")).toHaveTextContent("5");
 
     await user.click(screen.getByRole("button", { name: "+" }));
-    expect(screen.getByTitle("Display")).toHaveTextContent("5");
+    expect(screen.getByLabelText("Display")).toHaveTextContent("5");
 
     await user.click(screen.getByRole("button", { name: "3" }));
-    expect(screen.getByTitle("Display")).toHaveTextContent("3");
+    expect(screen.getByLabelText("Display")).toHaveTextContent("3");
 
     await user.click(screen.getByRole("button", { name: "=" }));
-    expect(screen.getByTitle("Display")).toHaveTextContent("8");
+    expect(screen.getByLabelText("Display")).toHaveTextContent("8");
   });
 });

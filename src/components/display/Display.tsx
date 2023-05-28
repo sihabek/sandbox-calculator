@@ -10,9 +10,9 @@ type DisplayProps = {
 
 function Display({ displayed }: DisplayProps) {
   return (
-    <div className="display" title="Display">
+    <section className="display" aria-label="Display" aria-live="polite">
       {displayed}
-    </div>
+    </section>
   );
 }
 
