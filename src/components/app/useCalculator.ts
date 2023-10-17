@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Calculator from "../../calculator/Calculator";
 
 function useCalculator(
@@ -6,9 +6,9 @@ function useCalculator(
 ): [string, (key: string) => void] {
   const [displayed, setDisplayed] = useState("");
 
-  useEffect(() => {
+  if (displayed !== calculator.getDisplayed()) {
     setDisplayed(calculator.getDisplayed());
-  }, []);
+  }
 
   const punchKey = (key: string) => {
     calculator.punchKey(key);
