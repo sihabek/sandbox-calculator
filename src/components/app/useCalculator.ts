@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Calculator from "../calculator/Calculator";
+import Calculator from "../../calculator/Calculator";
 
 function useCalculator(
   calculator: Calculator

@@ -1,7 +1,7 @@
 import Calculator from "../../calculator/Calculator";
-import useCalculator from "../../hooks/useCalculator";
 import Display from "../display/Display";
 import Keypad from "../keypad/Keypad";
+import useCalculator from "./useCalculator";
 
 import "./App.css";
 
