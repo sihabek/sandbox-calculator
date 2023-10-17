@@ -32,7 +32,7 @@ function App({ calculator }: AppProps) {
   return (
     <div className="calc">
       <Display displayed={displayed} />
-      <Keypad onKeyPunch={(key) => punchKey(key)} />
+      <Keypad onKeyPunch={punchKey} />
     </div>
   );
 }
