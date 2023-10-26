@@ -1,3 +1,4 @@
+import React from "react";
 import {
   KEY_0,
   KEY_1,
@@ -214,4 +215,4 @@ function Keypad({ onKeyPunch }: KeypadProps) {
   );
 }
 
-export default Keypad;
+export default React.memo(Keypad);

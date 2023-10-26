@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import Calculator from "../../calculator/Calculator";
 
 function useCalculator(
@@ -10,10 +10,13 @@ function useCalculator(
     setDisplayed(calculator.getDisplayed());
   }
 
-  const punchKey = (key: string) => {
-    calculator.punchKey(key);
-    setDisplayed(calculator.getDisplayed());
-  };
+  const punchKey = useCallback(
+    (key: string) => {
+      calculator.punchKey(key);
+      setDisplayed(calculator.getDisplayed());
+    },
+    [calculator]
+  );
 
   return [displayed, punchKey];
 }
