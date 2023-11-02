@@ -2,7 +2,7 @@
  * Display provided value in decorated container.
  */
 
-import "./Dislay.css";
+import "./Display.css";
 
 type DisplayProps = {
   displayed: string;
