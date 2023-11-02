@@ -1,0 +1,13 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`<Display /> > renders 1`] = `
+<DocumentFragment>
+  <section
+    aria-label="Display"
+    aria-live="polite"
+    class="display"
+  >
+    Lorem Ipsum
+  </section>
+</DocumentFragment>
+`;

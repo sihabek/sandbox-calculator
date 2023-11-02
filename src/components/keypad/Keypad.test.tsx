@@ -27,6 +27,11 @@ import {
 import Keypad from "./Keypad";
 
 describe("<Keypad />", () => {
+  test("renders", () => {
+    const { asFragment } = render(<Keypad onKeyPunch={() => {}} />);
+    expect(asFragment()).toMatchSnapshot();
+  });
+
   test("click on button calls onKeyPunch callback with correct key", async () => {
     const user = userEvent.setup();
 
